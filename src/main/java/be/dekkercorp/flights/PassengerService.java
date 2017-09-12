@@ -1,9 +1,11 @@
 package be.dekkercorp.flights;
 
 
+import be.dekkercorp.flights.domain.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -18,14 +20,22 @@ public class PassengerService {
 
     public List<String> getAll() {
         System.out.println("get all inside passengerservice");
-        return pr.findAll();
-//        List<String> passengers = new ArrayList<>();
-//        passengers.add("Amy");
-//        passengers.add("Joel");
-//        passengers.add("Frank");
-//        passengers.add("Burt");
-//        passengers.add("Fred");
-//        return passengers;
+        List<String> passengers = new ArrayList<>();
+        passengers.add("Amy");
+        passengers.add("Joel");
+        passengers.add("Frank");
+        passengers.add("Burt");
+        passengers.add("Fred");
+        return passengers;
 
     }
+
+    public Passenger findById(int id){
+        pr.readById(id);
+        System.out.println("Finding passenger with id" +id);
+        return null;
+    }
+
+
+
 }

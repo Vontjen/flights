@@ -17,6 +17,10 @@ public class FlightsConfig {
         names.add("Tom");
         return names;
     }
+//    Niet meer echt nodig, de @Component en @Autowire vervangen de configuratie van de Beans, deenige Beans dat nog geschreven moeten
+//    worden is als:
+//    1. Meerdere Beans nodig voor 1 component
+//    2. Beans nodig voor code die niet van ons is (zoals Arralists)
 //
 //    @Bean
 //    public String myCoolBean(){
@@ -36,5 +40,4 @@ public class FlightsConfig {
 //    public PassengerRepository myPassengerRepository(){
 //        return new PassengerRepository();
 //    }
-//
 }
