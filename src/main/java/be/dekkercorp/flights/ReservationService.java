@@ -1,7 +1,4 @@
 package be.dekkercorp.flights;
-
-import be.dekkercorp.flights.domain.Flight;
-import be.dekkercorp.flights.domain.Passenger;
 import be.dekkercorp.flights.domain.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,8 +12,12 @@ public class ReservationService {
     @Autowired
     private PassengerService passengerService;
 
-    public Ticket bookTicketForFlight(Passenger passenger, Flight flight){
+    public ReservationService() {
+        System.out.println("De ReservationService Bean wordt aangemaakt");
+    }
+
+    public Ticket bookTicketForFlight(int passengerId, int flightId){
         System.out.println("Booking Ticket ");
-        return ticketService.create(flight, 320.5,passenger);
+        return ticketService.create(flightService.findById(flightId), 320.5, passengerService.findById(passengerId));
     }
 }
