@@ -12,8 +12,8 @@ public class TicketService {
     private TicketRepository ticketRepository;
 
     public Ticket create(Flight flight, double price, Passenger passenger){
-        ticketRepository.persist(passenger,price,flight);
+
         System.out.println("Creating ticket");
-        return null;
+        return ticketRepository.persist(passenger,price,flight);
     }
 }

@@ -31,9 +31,9 @@ public class PassengerService {
     }
 
     public Passenger findById(int id){
-        pr.readById(id);
+
         System.out.println("Finding passenger with id" +id);
-        return null;
+        return pr.readById(id);
     }
 
 

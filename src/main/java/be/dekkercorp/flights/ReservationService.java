@@ -16,8 +16,7 @@ public class ReservationService {
     private PassengerService passengerService;
 
     public Ticket bookTicketForFlight(Passenger passenger, Flight flight){
-        ticketService.create(flight, 320.5,passenger);
         System.out.println("Booking Ticket ");
-        return null;
+        return ticketService.create(flight, 320.5,passenger);
     }
 }

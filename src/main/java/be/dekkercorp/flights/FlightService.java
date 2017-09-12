@@ -10,9 +10,9 @@ public class FlightService {
     FlightRepository flightRepository;
 
     public Flight findById(int id){
-        flightRepository.readById(id);
+
         System.out.println("Finding flight by id");
-        return null;
+        return flightRepository.readById(id);
     }
 
 
