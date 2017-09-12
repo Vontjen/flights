@@ -1,10 +1,14 @@
 package be.dekkercorp.flights;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class PassengerService {
-
+    @Autowired
     private PassengerRepository pr;
 
     public PassengerService(PassengerRepository pr){

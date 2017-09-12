@@ -14,9 +14,6 @@ public class FlightsApplication {
 
 		ApplicationContext ac = SpringApplication.run(FlightsApplication.class, args);
 
-		String s = ac.getBean("myCoolBean", String.class);
-		System.out.println(s);
-
 		PassengerService ps = ac.getBean(PassengerService.class);
         List<String> passengers = ps.getAll();
 

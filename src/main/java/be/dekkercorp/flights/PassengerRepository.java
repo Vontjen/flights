@@ -1,20 +1,16 @@
 package be.dekkercorp.flights;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class PassengerRepository {
 
-    private List<String> passengers = new ArrayList<>();
 
     public PassengerRepository() {
-
         System.out.println("PassengerRepository bean wordt gemaakt");
-
-    }
-
-    public List<String> getPassengers() {
-        return passengers;
     }
 
     public List<String> findAll() {
