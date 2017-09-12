@@ -32,7 +32,7 @@ public class PassengerService {
 
     public Passenger findById(int id){
 
-        System.out.println("Finding passenger with id" +id);
+        System.out.println("Finding passenger with id " +id);
         return pr.readById(id);
     }
 
