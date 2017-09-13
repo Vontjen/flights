@@ -16,8 +16,8 @@ public class ReservationService {
         System.out.println("De ReservationService Bean wordt aangemaakt");
     }
 
-    public Ticket bookTicketForFlight(int passengerId, int flightId){
+    public void bookTicketForFlight(int passengerId, int flightId){
         System.out.println("Booking Ticket ");
-        return ticketService.create(flightService.findById(flightId), 320.5, passengerService.findById(passengerId));
+        ticketService.create(flightService.findById(flightId), 320.5, passengerService.findById(passengerId));
     }
 }

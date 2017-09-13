@@ -15,6 +15,8 @@ public class Passenger {
     @OneToMany(mappedBy = "passenger")
     private List<Ticket> tickets= new ArrayList<>();
 
+    public Passenger() {
+    }
 
     public Passenger(String firstName, String lastName) {
         this.firstName = firstName;

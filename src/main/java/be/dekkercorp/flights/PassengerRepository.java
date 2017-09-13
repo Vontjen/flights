@@ -1,14 +1,18 @@
 package be.dekkercorp.flights;
 
 import be.dekkercorp.flights.domain.Passenger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.sql.DataSource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 
 @Repository
+@Transactional
 public class PassengerRepository {
+    @PersistenceContext
+    private EntityManager em;
 
 
     public PassengerRepository() {
@@ -16,14 +20,13 @@ public class PassengerRepository {
     }
 
 
-
-    public Passenger readById(int id){
+    public Passenger readById(int id) {
         System.out.println("Reading id of passenger");
-        return null;
+        return em.find(Passenger.class,id);
     }
 
-
-
-
+    public void save(Passenger p) {
+        em.persist(p);
+    }
 
 }

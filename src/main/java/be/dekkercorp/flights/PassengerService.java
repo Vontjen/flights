@@ -5,6 +5,8 @@ import be.dekkercorp.flights.domain.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,8 @@ import java.util.List;
 public class PassengerService {
     @Autowired
     private PassengerRepository pr;
+    @PersistenceContext
+    EntityManager em;
 
     public PassengerService(PassengerRepository pr){
         this.pr = pr;
@@ -33,7 +37,7 @@ public class PassengerService {
     public Passenger findById(int id){
 
         System.out.println("Finding passenger with id " +id);
-        return pr.readById(id);
+        return em.find(Passenger.class, id);
     }
 
 

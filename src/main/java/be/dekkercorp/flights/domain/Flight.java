@@ -16,7 +16,15 @@ public class Flight {
     @Column(nullable = false)
     private String departure;
 
+    public Flight() {
+        //default constructor for jpa
+    }
 
+    public Flight(String number, String destination, String departure) {
+        this.number = number;
+        this.destination = destination;
+        this.departure = departure;
+    }
 
     public String getDestination() {
         return destination;
@@ -32,10 +40,6 @@ public class Flight {
 
     public void setDeparture(String departure) {
         this.departure = departure;
-    }
-
-    public Flight(String number) {
-        this.number = number;
     }
 
     public int getId() {

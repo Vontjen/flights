@@ -15,10 +15,18 @@ public class Ticket {
     @ManyToOne
     private Passenger passenger;
 
-
+    Ticket() {
+        //default constructor for JPA
+    }
 
     public Ticket(double price) {
         this.price = price;
+    }
+
+    public Ticket(double price, Flight flight, Passenger passenger) {
+        this.price = price;
+        this.flight = flight;
+        this.passenger = passenger;
     }
 
     public int getId() {
