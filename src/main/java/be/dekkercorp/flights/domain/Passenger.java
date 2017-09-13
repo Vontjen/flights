@@ -1,9 +1,8 @@
 package be.dekkercorp.flights.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Passenger {
@@ -13,6 +12,9 @@ public class Passenger {
     private String firstName;
     private String lastName;
     private int frequentFlyerMiles;
+    @OneToMany(mappedBy = "passenger")
+    private List<Ticket> tickets= new ArrayList<>();
+
 
     public Passenger(String firstName, String lastName) {
         this.firstName = firstName;
@@ -50,5 +52,9 @@ public class Passenger {
 
     public String fullname() {
         return firstName+" "+lastName;
+    }
+
+    public void addTicket(Ticket ticket) {
+        tickets.add(ticket);
     }
 }

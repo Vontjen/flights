@@ -1,13 +1,21 @@
 package be.dekkercorp.flights.domain;
 
 
+import javax.persistence.*;
 
+@Entity
 public class Ticket {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false)
     private double price;
+    @ManyToOne
     private Flight flight;
+    @ManyToOne
     private Passenger passenger;
+
+
 
     public Ticket(double price) {
         this.price = price;
@@ -39,5 +47,6 @@ public class Ticket {
 
     public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
+        passenger.addTicket(this);
     }
 }
