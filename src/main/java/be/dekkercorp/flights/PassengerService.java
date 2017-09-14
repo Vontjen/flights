@@ -14,8 +14,8 @@ import java.util.List;
 public class PassengerService {
     @Autowired
     private PassengerRepository pr;
-    @PersistenceContext
-    EntityManager em;
+//    @PersistenceContext
+//    EntityManager em;
 
     public PassengerService(PassengerRepository pr){
         this.pr = pr;

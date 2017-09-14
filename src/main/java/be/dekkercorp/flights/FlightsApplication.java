@@ -26,6 +26,7 @@ public class FlightsApplication {
         PassengerService ps = ac.getBean(PassengerService.class);
         TicketService ts = ac.getBean(TicketService.class);
         FlightService fs = ac.getBean(FlightService.class);
+        FlightRepository fr = ac.getBean(FlightRepository.class);
 
 //        ps.save("Hola", "Luja");
 
@@ -37,8 +38,10 @@ public class FlightsApplication {
         ts.save(t);
 
         Flight f = new Flight("ABB546", "Londen", "Paris");
-        fs.save(f);
+//        fs.save(f);
         rs.bookTicketForFlight(4000, 4000);
+
+        fr.save(f);
 
 
 

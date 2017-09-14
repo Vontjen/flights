@@ -11,8 +11,8 @@ import javax.persistence.PersistenceContext;
 public class FlightService {
     @Autowired
     FlightRepository flightRepository;
-    @PersistenceContext
-    EntityManager em;
+//    @PersistenceContext
+//    EntityManager em;
 
     public FlightService(FlightRepository flightRepository) {
         System.out.println("Flightservice Bean wordt aangemaakt");
