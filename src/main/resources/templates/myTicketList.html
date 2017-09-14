@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
@@ -7,9 +7,25 @@
     <title>index</title>
 </head>
 <body>
-<h1>Mijn lijstje met tickets</h1>
-<p> Under construction</p>
-<img src="anim0205-1_e0.gif"/>
+<div class="container">
+    <h1>Mijn lijstje met tickets</h1>
+    <p> Under construction</p>
+    <img src="anim0205-1_e0.gif"/>
+
+    <table>
+        <tr th:each="t:${flightTickets}">
+            <td th:text="${t.price}"></td>
+            <td th:text="${t.passenger.firstName}"></td>
+            <td th:text="${t.passenger.lastName}"></td>
+            <td th:text="${t.flight.number}"></td>
+
+        </tr>
+    </table>
+
+    <div th:text="${flightTickets}"></div>
+
+</div>
 </body>
+
 </html>
 

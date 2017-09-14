@@ -31,17 +31,17 @@ public class FlightsApplication {
 //        ps.save("Hola", "Luja");
 
 
-        Passenger p = new Passenger("John", "Frank");
-        ps.save(p);
-
-        Ticket t = new Ticket(98.54);
-        ts.save(t);
-
-        Flight f = new Flight("ABB546", "Londen", "Paris");
+//        Passenger p = new Passenger("John", "Frank");
+//        ps.save(p);
+//
+//        Ticket t = new Ticket(98.54);
+//        ts.save(t);
+//
+//        Flight f = new Flight("ABB546", "Londen", "Paris");
 //        fs.save(f);
-        rs.bookTicketForFlight(4000, 4000);
-
-        fr.save(f);
+//        rs.bookTicketForFlight(4000, 4000);
+//
+//        fr.save(f);
 
 
 
