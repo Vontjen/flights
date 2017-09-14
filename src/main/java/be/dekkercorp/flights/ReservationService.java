@@ -18,6 +18,6 @@ public class ReservationService {
 
     public void bookTicketForFlight(int passengerId, int flightId){
         System.out.println("Booking Ticket ");
-        ticketService.create(flightService.findById(flightId), 320.5, passengerService.findById(passengerId));
+        ticketService.save(flightService.findById(flightId), 320.5, passengerService.findById(passengerId));
     }
 }

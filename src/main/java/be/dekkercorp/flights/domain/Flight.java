@@ -9,7 +9,7 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String number;
     @Column(nullable = false)
     private String destination;
@@ -42,7 +42,7 @@ public class Flight {
         this.departure = departure;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -52,5 +52,15 @@ public class Flight {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", destination='" + destination + '\'' +
+                ", departure='" + departure + '\'' +
+                '}';
     }
 }

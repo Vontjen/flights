@@ -36,8 +36,16 @@ public class PassengerService {
 
     public Passenger findById(int id){
 
-        System.out.println("Finding passenger with id " +id);
-        return em.find(Passenger.class, id);
+        return pr.findOne(id);
+    }
+
+    public void save(String firstName, String lastName){
+        Passenger p = new Passenger("Tjen","Dekker");
+        pr.save(p);
+    }
+
+    public void save(Passenger p){
+        pr.save(p);
     }
 
 

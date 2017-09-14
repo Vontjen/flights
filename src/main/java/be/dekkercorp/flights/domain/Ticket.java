@@ -29,7 +29,7 @@ public class Ticket {
         this.passenger = passenger;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

@@ -24,7 +24,7 @@ public class Passenger {
         this.frequentFlyerMiles = 0;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

@@ -6,7 +6,6 @@ import be.dekkercorp.flights.domain.Ticket;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.List;
 
@@ -22,20 +21,42 @@ public class FlightsApplication {
 //
 //        passengers.forEach(System.out::println);
 
+
         ReservationService rs = ac.getBean(ReservationService.class);
-        PassengerRepository pr = ac.getBean(PassengerRepository.class);
-        TicketRepository tr = ac.getBean(TicketRepository.class);
-        FlightRepository fr = ac.getBean(FlightRepository.class);
+        PassengerService ps = ac.getBean(PassengerService.class);
+        TicketService ts = ac.getBean(TicketService.class);
+        FlightService fs = ac.getBean(FlightService.class);
+
+//        ps.save("Hola", "Luja");
 
 
         Passenger p = new Passenger("John", "Frank");
-        pr.save(p);
+        ps.save(p);
 
         Ticket t = new Ticket(98.54);
-        tr.save(t);
+        ts.save(t);
 
-       Flight f = new Flight("ABB546","Londen","Paris");
-        fr.save(f);
-        rs.bookTicketForFlight(1, 1);
+        Flight f = new Flight("ABB546", "Londen", "Paris");
+        fs.save(f);
+        rs.bookTicketForFlight(4000, 4000);
+
+
+
+
+
+
+
+//        List<Passenger> passengers = pr.findAll();
+//
+//
+//
+//        for (Passenger pa : passengers) {
+//            System.out.println(pa.getFirstName());
+//        }
+
+//        System.out.println(fr.findByNumber("ABA212"));
+
+
+
     }
 }

@@ -2,6 +2,7 @@ package be.dekkercorp.flights;
 
 import be.dekkercorp.flights.domain.Flight;
 import be.dekkercorp.flights.domain.Passenger;
+import be.dekkercorp.flights.domain.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,9 +17,14 @@ public class TicketService {
 
     }
 
-    public void create(Flight flight, double price, Passenger passenger){
+    public void save(Flight flight, double price, Passenger passenger){
 
         System.out.println("Creating ticket");
-        ticketRepository.persist(passenger,price,flight);
+        Ticket ticket = new Ticket(price, flight, passenger);
+        ticketRepository.save(ticket);
+    }
+
+    public void save(Ticket t){
+        ticketRepository.save(t);
     }
 }

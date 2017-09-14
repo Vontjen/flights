@@ -21,8 +21,16 @@ public class FlightService {
 
     public Flight findById(int id){
 
-        System.out.println("Finding flight by id");
-        return em.find(Flight.class, id);
+        return flightRepository.getOne(id);
+    }
+
+    public void save(String number, String departure, String destination){
+        Flight flight = new Flight(number, departure, destination);
+        flightRepository.save(flight);
+    }
+
+    public void save(Flight flight){
+        flightRepository.save(flight);
     }
 
 
