@@ -1,6 +1,9 @@
 package be.dekkercorp.flights.domain;
 
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
+
 import javax.persistence.*;
 
 @Entity
@@ -55,6 +58,13 @@ public class Ticket {
 
     public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
-        passenger.addTicket(this);
+        if(passenger != null){
+            passenger.addTicket(this);
+        }
     }
+//
+//    public void setPassenger(Passenger passenger) {
+//        this.passenger = passenger;
+//        passenger.addTicket(this);
+//    }
 }

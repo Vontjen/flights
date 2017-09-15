@@ -1,5 +1,7 @@
 package be.dekkercorp.flights.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +16,14 @@ public class Passenger {
     private int frequentFlyerMiles;
     @OneToMany(mappedBy = "passenger")
     private List<Ticket> tickets= new ArrayList<>();
+//
+//    public List<Ticket> getTickets() {
+//        return tickets;
+//    }
 
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-    }
+//    public void setTickets(List<Ticket> tickets) {
+//        this.tickets = tickets;
+//    }
 
     public Passenger() {
     }
@@ -62,6 +64,12 @@ public class Passenger {
 
     public String fullname() {
         return firstName+" "+lastName;
+    }
+
+
+    @JsonIgnore
+    public List<Ticket> getTickets() {
+        return tickets;
     }
 
     public void addTicket(Ticket ticket) {
