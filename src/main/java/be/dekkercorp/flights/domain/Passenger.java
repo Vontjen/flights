@@ -1,8 +1,11 @@
 package be.dekkercorp.flights.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,10 +37,12 @@ public class Passenger {
         this.frequentFlyerMiles = 0;
     }
 
+    @XmlAttribute(name = "id")
     public Integer getId() {
         return id;
     }
 
+    @XmlElement(name = "first")
     public String getFirstName() {
         return firstName;
     }
@@ -49,6 +54,8 @@ public class Passenger {
     public String getLastName() {
         return lastName;
     }
+
+    @JsonProperty("abc")
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
