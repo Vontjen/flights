@@ -1,7 +1,10 @@
 package be.dekkercorp.flights;
 
+import be.dekkercorp.flights.domain.Passenger;
 import be.dekkercorp.flights.domain.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +33,24 @@ public class TicketRestController {
     @RequestMapping(method = RequestMethod.DELETE, path = "/api/ticket/{tid}")
     public void deleteTicket(@PathVariable("tid") int id){
         tr.delete(id);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, path = "/api/ticket", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Ticket> create(@RequestBody Ticket input) {
+        if (input.getId() != null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        tr.save(input);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, path = "/api/ticket", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Ticket> update(@RequestBody Ticket input) {
+        if (input.getId() == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        tr.save(input);
+        return new ResponseEntity<>(input, HttpStatus.OK);
     }
 
 }
